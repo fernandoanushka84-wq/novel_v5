@@ -238,6 +238,12 @@ class _CreateStoryScreenState extends State<CreateStoryScreen> {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please enter a title')));
       return;
     }
+    if (_selectedTags.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('At least one hashtag is required to create a story')),
+      );
+      return;
+    }
     setState(() => _saving = true);
     try {
       final warnings = _warningsController.text.trim();

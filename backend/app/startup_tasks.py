@@ -157,6 +157,8 @@ def _ensure_mysql_extra_tables(connection) -> int:
         column_patches = [
             ("app_users", "cover_url", "ALTER TABLE app_users ADD COLUMN cover_url TEXT NULL"),
             ("app_users", "bio", "ALTER TABLE app_users ADD COLUMN bio TEXT NULL"),
+            ("app_users", "username", "ALTER TABLE app_users ADD COLUMN username VARCHAR(40) NULL"),
+            ("app_users", "country_code", "ALTER TABLE app_users ADD COLUMN country_code VARCHAR(8) DEFAULT ''"),
             ("author_follows", "user_id", "ALTER TABLE author_follows ADD COLUMN user_id INT NULL"),
             ("author_follows", "author_id", "ALTER TABLE author_follows ADD COLUMN author_id INT NULL"),
             ("app_users", "followers_count", "ALTER TABLE app_users ADD COLUMN followers_count INT NOT NULL DEFAULT 0"),
@@ -305,6 +307,25 @@ def _apply_runtime_patches() -> None:
         except Exception as ew_exc:
             LOGGER.warning("execute_write patch skipped: %s", ew_exc)
 
+
+        # --- Wingsaga feature routes ---
+        try:
+            from .wingsaga_features import register_wingsaga_routes
+
+            register_wingsaga_routes(
+                main_mod.app,
+                fetch_all=main_mod.fetch_all,
+                execute_write=main_mod.execute_write,
+                require_user=getattr(main_mod, "require_user", None),
+                optional_user=getattr(main_mod, "optional_user", None),
+                bump_content_version=getattr(main_mod, "bump_content_version", None),
+                serialize_book=getattr(main_mod, "_serialize_book", None),
+                use_sqlite=db_mod.USE_SQLITE,
+            )
+            LOGGER.info("Registered Wingsaga feature routes")
+        except Exception as wf_exc:
+            LOGGER.warning("Wingsaga routes not registered: %s", wf_exc)
+
         LOGGER.info(
             "Applied runtime patches (db_mode=%s)",
             "sqlite" if db_mod.USE_SQLITE else "mysql",
@@ -360,8 +381,26 @@ def run_startup_tasks() -> dict[str, Any]:
     except Exception as exc:
         LOGGER.exception("Failed after migrations: %s", exc)
 
+
+    # Wingsaga schema + achievement seed (auto on every start)
+    try:
+        from .wingsaga_features import ensure_wingsaga_schema
+        from . import main as main_mod
+        from . import database as db_mod
+
+        wingsaga_report = ensure_wingsaga_schema(
+            main_mod.execute_write,
+            main_mod.fetch_all,
+            db_mod.USE_SQLITE,
+        )
+        result["wingsaga"] = wingsaga_report
+        LOGGER.info("Wingsaga schema/seed: %s", wingsaga_report)
+    except Exception as wingsaga_exc:
+        LOGGER.warning("Wingsaga schema step skipped: %s", wingsaga_exc)
+
     try:
         _apply_runtime_patches()
+
         result["patches_applied"] = True
     except Exception as exc:
         LOGGER.exception("Patch step failed: %s", exc)
