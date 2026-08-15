@@ -1,0 +1,28 @@
+Galatea-style Profile UI
+========================
+
+1. Download novel_v2_code_updates.zip (contains profile_screen.dart)
+2. Copy to:
+   lib/ui/screens/profile_screen.dart
+3. flutter pub get
+4. flutter run ...
+
+Layout matches video:
+- Cover banner + overlapping circular avatar
+- Name + verified badge + @username + bio
+- Following | Followers + Follow/Edit button
+- Tabs: About | Stories | Wall | Activity | Reviews
+- About: CHAPTERS READ / SOCIAL KARMA / DAY STREAK cards,
+  About text, Reading Lists, Achievements grid
+- Stories: search + sort/filter sheet + cover rows
+- Wall: composer + posts
+- Activity: feed from notifications API
+- Reviews: stars + Plot/Writing/Grammar chips
+
+Data from API:
+  fetchMe / fetchProfile, fetchWriterStories, fetchChatMessages,
+  fetchNotifications, fetchMyReviews, fetchReadingLists,
+  followAuthor / unfollowAuthor, updateMe
+
+DB seeds/migrations still run automatically on backend startup
+(via app.startup_tasks.run_startup_tasks).

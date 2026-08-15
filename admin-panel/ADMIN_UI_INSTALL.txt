@@ -1,0 +1,24 @@
+NovelHub Admin UI install
+=========================
+
+1) styles.css is already on GitHub (dark responsive theme).
+
+2) Copy App.jsx from the download zip into:
+   admin-panel/src/App.jsx
+
+   Or from this repo artifacts / novel_v2_code_updates.zip → App.jsx
+
+3) Ensure api.js session uses POST (already fixed on GitHub).
+
+4) Run:
+   cd admin-panel
+   copy .env.example .env
+   # VITE_API_BASE_URL=http://192.168.1.4:8000
+   npm install
+   npm run dev
+
+5) Login with ADMIN_USERNAME / ADMIN_PASSWORD from backend/.env
+
+Pages: Dashboard, Novels, Authors, Users, Reports, Revenue,
+Content Moderation, Announcements, Settings — all wired to
+/api/admin/* so Flutter bootstrap picks up DB changes.

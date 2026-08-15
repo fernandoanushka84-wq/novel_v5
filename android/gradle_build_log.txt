@@ -1,0 +1,636 @@
+
+c:\lakmal_code\novel_mobile_app\android>if "Windows_NT" == "Windows_NT" setlocal
+
+c:\lakmal_code\novel_mobile_app\android>set DEFAULT_JVM_OPTS= 
+
+c:\lakmal_code\novel_mobile_app\android>set DIRNAME=c:\lakmal_code\novel_mobile_app\android\ 
+
+c:\lakmal_code\novel_mobile_app\android>if "c:\lakmal_code\novel_mobile_app\android\" == "" set DIRNAME=. 
+
+c:\lakmal_code\novel_mobile_app\android>set APP_BASE_NAME=gradlew 
+
+c:\lakmal_code\novel_mobile_app\android>set APP_HOME=c:\lakmal_code\novel_mobile_app\android\ 
+
+c:\lakmal_code\novel_mobile_app\android>if defined JAVA_HOME goto findJavaFromJavaHome 
+
+c:\lakmal_code\novel_mobile_app\android>set JAVA_EXE=java.exe 
+
+c:\lakmal_code\novel_mobile_app\android>java.exe -version  1>NUL 2>&1 
+
+c:\lakmal_code\novel_mobile_app\android>if "0" == "0" goto init 
+
+c:\lakmal_code\novel_mobile_app\android>if not "Windows_NT" == "Windows_NT" goto win9xME_args 
+
+c:\lakmal_code\novel_mobile_app\android>if "@eval[2+2]" == "4" goto 4NT_args 
+
+c:\lakmal_code\novel_mobile_app\android>set CMD_LINE_ARGS= 
+
+c:\lakmal_code\novel_mobile_app\android>set _SKIP=2 
+
+c:\lakmal_code\novel_mobile_app\android>if "xassembleDebug" == "x" goto execute 
+
+c:\lakmal_code\novel_mobile_app\android>set CMD_LINE_ARGS=assembleDebug --no-daemon 
+
+c:\lakmal_code\novel_mobile_app\android>goto execute 
+
+c:\lakmal_code\novel_mobile_app\android>set CLASSPATH=c:\lakmal_code\novel_mobile_app\android\\gradle\wrapper\gradle-wrapper.jar 
+
+c:\lakmal_code\novel_mobile_app\android>"java.exe"    "-Dorg.gradle.appname=gradlew" -classpath "c:\lakmal_code\novel_mobile_app\android\\gradle\wrapper\gradle-wrapper.jar" org.gradle.wrapper.GradleWrapperMain assembleDebug --no-daemon 
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/C:/Users/lakay/.gradle/wrapper/dists/gradle-8.14-all/c2qonpi39x1mddn7hk5gh9iqj/gradle-8.14/lib/native-platform-0.22-milestone-28.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :gradle
+WARNING: Unsupported Kotlin plugin version.
+The `embedded-kotlin` and `kotlin-dsl` plugins rely on features of Kotlin `2.0.21` that might work differently than in the requested version `2.2.20`.
+
+> Task :gradle:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle:compileKotlin
+w: Language version 1.8 is deprecated and its support will be removed in a future version of Kotlin
+w: file:///C:/src/flutter_windows_3.44.8-stable/flutter/packages/flutter_tools/gradle/src/main/kotlin/FlutterPlugin.kt:13:37 'ApkVariant' is deprecated. Deprecated in Java
+w: file:///C:/src/flutter_windows_3.44.8-stable/flutter/packages/flutter_tools/gradle/src/main/kotlin/FlutterPlugin.kt:662:69 'ApkVariant' is deprecated. Deprecated in Java
+w: file:///C:/src/flutter_windows_3.44.8-stable/flutter/packages/flutter_tools/gradle/src/main/kotlin/FlutterPluginUtils.kt:12:37 'BaseVariantOutput' is deprecated. Deprecated in Java
+w: file:///C:/src/flutter_windows_3.44.8-stable/flutter/packages/flutter_tools/gradle/src/main/kotlin/plugins/PluginHandler.kt:168:70 Unchecked cast: NamedDomainObjectContainer<out BuildType> to NamedDomainObjectContainer<BuildType>
+w: file:///C:/src/flutter_windows_3.44.8-stable/flutter/packages/flutter_tools/gradle/src/main/kotlin/plugins/PluginHandler.kt:169:75 Unchecked cast: NamedDomainObjectContainer<out BuildType> to NamedDomainObjectContainer<BuildType>
+
+> Task :gradle:compileJava NO-SOURCE
+> Task :gradle:compileGroovy NO-SOURCE
+> Task :gradle:pluginDescriptors
+> Task :gradle:processResources
+> Task :gradle:classes
+> Task :gradle:jar
+
+> Configure project :app
+w: file:///C:/lakmal_code/novel_mobile_app/android/app/build.gradle.kts:19:9: 'jvmTarget: String' is deprecated. Please migrate to the compilerOptions DSL. More details are here: https://kotl.in/u1r8ln
+This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+Checking the license for package NDK (Side by side) 28.2.13676358 in C:\Android\licenses
+License for package NDK (Side by side) 28.2.13676358 accepted.
+Preparing "Install NDK (Side by side) 28.2.13676358 v.28.2.13676358".
+"Install NDK (Side by side) 28.2.13676358 v.28.2.13676358" ready.
+Installing NDK (Side by side) 28.2.13676358 in C:\Android\ndk\28.2.13676358
+"Install NDK (Side by side) 28.2.13676358 v.28.2.13676358" complete.
+"Install NDK (Side by side) 28.2.13676358 v.28.2.13676358" finished.
+Checking the license for package Android SDK Build-Tools 35 in C:\Android\licenses
+License for package Android SDK Build-Tools 35 accepted.
+Preparing "Install Android SDK Build-Tools 35 v.35.0.0".
+"Install Android SDK Build-Tools 35 v.35.0.0" ready.
+Installing Android SDK Build-Tools 35 in C:\Android\build-tools\35.0.0
+"Install Android SDK Build-Tools 35 v.35.0.0" complete.
+"Install Android SDK Build-Tools 35 v.35.0.0" finished.
+[=========                              ] 25%                                   [=========                              ] 25% Fetch remote repository...        [=======================================] 100% Fetch remote repository...       
+
+> Task :app:DebugMinSdkCheck
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :flutter_plugin_android_lifecycle:preBuild UP-TO-DATE
+> Task :flutter_plugin_android_lifecycle:preDebugBuild UP-TO-DATE
+> Task :flutter_plugin_android_lifecycle:writeDebugAarMetadata UP-TO-DATE
+> Task :google_sign_in_android:preBuild UP-TO-DATE
+> Task :google_sign_in_android:preDebugBuild UP-TO-DATE
+> Task :google_sign_in_android:writeDebugAarMetadata UP-TO-DATE
+> Task :image_picker_android:preBuild UP-TO-DATE
+> Task :image_picker_android:preDebugBuild UP-TO-DATE
+> Task :image_picker_android:writeDebugAarMetadata UP-TO-DATE
+> Task :shared_preferences_android:preBuild UP-TO-DATE
+> Task :shared_preferences_android:preDebugBuild UP-TO-DATE
+> Task :shared_preferences_android:writeDebugAarMetadata UP-TO-DATE
+> Task :app:checkDebugAarMetadata
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:cleanMergeDebugAssets
+
+> Task :app:compileFlutterBuildDebug
+../../runtime/vm/zone.cc: 96: error: Out of memory.
+version=3.12.2 (stable) (Tue Jun 9 01:11:39 2026 -0700) on "windows_x64"
+pid=32668, thread=6656, isolate_group=main(000002E53E14C940), isolate=(nil)(0000000000000000)
+os=windows, arch=x64, comp=no, sim=no
+isolate_instructions=2e53d3a0000, vm_instructions=7ff629e883e0
+fp=f253dfe240, sp=f253dfe200, pc=7ff62a18e2f3
+  pc 0x00007ff62a18e2f3 fp 0x000000f253dfe240 Dart_DetectNullSafety+0x2fd853
+-- End of DumpStackTrace
+=== Crash occurred when compiling dart:core__Uri@0150898__normalize@0150898 in optimizing JIT mode in DSE pass
+*** BEGIN CFG
+DSE
+==== dart:core__Uri@0150898__normalize@0150898 (RegularFunction)
+B0[graph]:0 {
+      v0 <- Constant(#null) T{Null?}
+      v1 <- Constant(#<optimized out>) T{Sentinel~}
+      v5 <- Constant(#4) T{_Smi}
+      v11 <- Constant(#0) [0, 0] T{_Smi}
+      v12 <- Constant(#2) T{_Smi}
+      v16 <- Constant(#escapeDelimiters) T{_OneByteString}
+      v17 <- Constant(#false) T{bool}
+      v23 <- Constant(#replaceBackslash) T{_OneByteString}
+      v29 <- Constant(#true) T{bool}
+      v34 <- Constant(#127) T{_Smi}
+      v36 <- Constant(#37) T{_Smi}
+      v38 <- Constant(#92) T{_Smi}
+      v40 <- Constant(#1) T{_Smi}
+      v41 <- Constant(#64512) T{_Smi}
+      v43 <- Constant(#55296) T{_Smi}
+      v55 <- Constant(#56320) T{_Smi}
+      v59 <- Constant(#65536) T{_Smi}
+      v60 <- Constant(#1023) T{_Smi}
+      v62 <- Constant(#10) T{_Smi}
+      v68 <- Constant(#Invalid character) T{_OneByteString}
+      v71 <- Constant(#/) T{_OneByteString}
+      v80 <- Constant(#%) T{_OneByteString}
+      v82 <- Constant(#3) T{_Smi}
+      v85 <- Constant(#%25) T{_OneByteString}
+      v93 <- Constant(#) T{_TwoByteString}
+      v98 <- Constant(#5) T{_Smi}
+      v142 <- Constant(#) T{_OneByteString}
+      v152 <- Constant(#_ImmutableList len:5) T{_ImmutableList}
+      v332 <- Constant(#255) T{_Smi}
+      v796 <- Constant(#128) T{_Smi}
+}
+B1[function entry]:2 {
+      v2 <- Parameter(6 @r10) T{<:*?}
+}
+    v3 <- LoadField(v2 . ArgumentsDescriptor.positional_count {final}) T{_Smi}
+    v4 <- LoadField(v2 . ArgumentsDescriptor.count {final}) T{_Smi}
+    v6 <- BinarySmiOp:4(- [tr], v4, v5) T{_Smi}
+    v7 <- LoadIndexedUnsafe(rbp[v6 + 40]) T{<:String}
+    v8 <- LoadIndexedUnsafe(rbp[v6 + 32]) T{<:int}
+    v9 <- LoadIndexedUnsafe(rbp[v6 + 24]) T{<:int}
+    v10 <- LoadIndexedUnsafe(rbp[v6 + 16]) T{<:int}
+    v15 <- LoadIndexed([_List] v2, v5 T{_Smi}) T{<:*?}
+    Branch if StrictCompare:16(===, v15, v16) goto (2, 3)
+B2[target]:20
+    v105 <- LoadIndexed([_List] v2, v98 T{_Smi}) T{<:*?}
+    v106 <- BinarySmiOp:10(- [tr], v4, v105) T{_Smi}
+    v107 <- LoadIndexedUnsafe(rbp[v106 + 8]) T{bool}
+    goto:26 B4
+B3[target]:22
+    goto:28 B4
+B4[join]:24 pred(B2, B3) {
+      v18 <- phi(v107, v17) alive T{bool}
+      v19 <- phi(v40 T{_Smi}, v11) alive T{_Smi}
+}
+    v747 <- BinarySmiOp:30(<< [tr], v19, v40) T{_Smi}
+    v21 <- BinarySmiOp:38(+ [tr], v747 T{_Smi}, v5) T{_Smi}
+    v22 <- LoadIndexed([_List] v2, v21) T{<:*?}
+    Branch if StrictCompare:40(===, v22, v23) goto (5, 6)
+B5[target]:44
+    v99 <- BinarySmiOp:32(+ [tr], v747 T{_Smi}, v98) T{_Smi}
+    v100 <- LoadIndexed([_List] v2, v99) T{<:*?}
+    v101 <- BinarySmiOp:34(- [tr], v4, v100) T{_Smi}
+    v102 <- LoadIndexedUnsafe(rbp[v101 + 8]) T{bool}
+    v103 <- BinarySmiOp:36(+ [tr], v19, v40)
+    goto:50 B8
+B6[target]:46
+    goto:52 B8
+B8[join]:48 pred(B5, B6) {
+      v24 <- phi(v102, v17) alive T{bool}
+}
+    CheckStackOverflow:58(stack=0, loop=0)
+    CheckSmi:362(v8)
+    CheckSmi:362(v9)
+    CheckClass:362(v7 Cids[1: _OneByteString@0150898 etc.  cid 94])
+    v109 <- LoadField:362(v7 T{_OneByteString} . String.length {final}) T{_Smi}
+    CheckSmi:362(v10)
+    goto:362 B48
+B48[join]:356 pred(B8, B16) {
+      v25 <- phi(v0, v90) alive T{StringBuffer?}
+      v26 <- phi(v8 T{_Smi}, v91) alive T{_Smi}
+      v27 <- phi(v8 T{_Smi}, v92) alive T{_Smi}
+}
+    CheckStackOverflow:360(stack=0, loop=1)
+    Branch if RelationalOp:68(<, v27 T{_Smi}, v9 T{_Smi}) T{bool} goto (47, 49)
+B47[target]:354
+    v110 <- CheckArrayBound:74(v109, v27 T{_Smi}) T{_Smi}
+    v111 <- LoadIndexed:74([_OneByteString] v7 T{_OneByteString}, v110) int64
+    v112 <- BoxInt64(v111) T{<:int}
+    CheckSmi:78(v112)
+    Branch if RelationalOp:78(<, v112 T{_Smi}, v34) T{bool} goto (9, 12)
+B9[target]:94
+    v114 <- CheckArrayBound:84(v796 T{_Smi}, v112 T{_Smi}) T{_Smi}
+    v115 <- LoadIndexed:84([_TwoByteString] v93, v114) int64
+    v116 <- BoxInt64(v115) T{<:int}
+    CheckSmi:86(v116)
+    Branch if TestInt(v116 T{_Smi}, v10 T{_Smi}) goto (10, 13)
+B10[target]:96
+    v97 <- BinarySmiOp:98(+, v27 T{_Smi}, v40) T{_Smi}
+    goto:348 B46
+B13[target]:106
+    goto:108 B11
+B12[target]:102
+    goto:104 B11
+B11[join]:100 pred(B12, B13)
+    Branch if EqualityCompare:114(v112 T{_Smi} == v36) T{bool} goto (14, 21)
+B14[target]:120
+    RecordCoverage()
+    RecordCoverage()
+    v79 <- StaticCall:122( _normalizeEscape@0150898<0> v7 T{_OneByteString}, v27 T{_Smi}, v17) T{<:String??}
+    Branch if StrictCompare:126(===, v79, v0) goto (15, 17)
+B15[target]:130
+    RecordCoverage()
+    RecordCoverage()
+    v86 <- BinarySmiOp:132(+, v27 T{_Smi}, v82) T{_Smi}
+    goto:138 B16
+B17[target]:140
+    RecordCoverage()
+    v81 <- InstanceCall:142( ==<0>, v80, v79 T{<:String?} IC[1: _Smi@0150898, _Smi@0150898 cnt:0 trgt:'_IntegerImplementation@0150898.=='] using unchecked entrypoint) T{bool}
+    Branch if StrictCompare:144(===, v81, v29) goto (18, 19)
+B18[target]:148
+    RecordCoverage()
+    goto:160 B20
+B19[target]:154
+    RecordCoverage()
+    goto:162 B20
+B20[join]:158 pred(B18, B19) {
+      v83 <- phi(v85, v79 T{<:String?}) alive T{<:String?}
+      v84 <- phi(v40, v82) alive T{_Smi}
+}
+    goto:308 B42
+B21[target]:164
+    Branch if EqualityCompare:166(v112 T{_Smi} == v38) T{bool} goto (22, 25)
+B22[target]:178
+    Branch if StrictCompare:174(===, v24, v29) goto (23, 26)
+B23[target]:180
+    goto:302 B41
+B26[target]:192
+    goto:194 B24
+B25[target]:188
+    goto:190 B24
+B24[join]:186 pred(B25, B26)
+    RecordCoverage()
+    Branch if StrictCompare:198(!==, v18, v29) goto (27, 30)
+B27[target]:208
+    RecordCoverage()
+    v67 <- StaticCall:202( _isGeneralDelimiter@0150898<0> v112 T{_Smi}) T{bool}
+    Branch if StrictCompare:204(===, v67, v29) goto (28, 31)
+B28[target]:210
+    RecordCoverage()
+    RecordCoverage()
+    StaticCall:212( _fail@0150898<0> v7 T{_OneByteString}, v27 T{_Smi}, v68)
+    Stop()
+B31[target]:220
+    goto:222 B29
+B30[target]:216
+    goto:218 B29
+B29[join]:214 pred(B30, B31)
+    RecordCoverage()
+    RecordCoverage()
+    v42 <- BinarySmiOp:226(&, v112 T{_Smi}, v41) T{_Smi}
+    RecordCoverage()
+    Branch if EqualityCompare:228(v42 == v43) T{bool} goto (32, 39)
+B32[target]:234
+    RecordCoverage()
+    RecordCoverage()
+    v48 <- BinarySmiOp:236(+, v27 T{_Smi}, v40) T{_Smi}
+    RecordCoverage()
+    Branch if RelationalOp:238(<, v48, v9 T{_Smi}) T{bool} goto (33, 37)
+B33[target]:244
+    RecordCoverage()
+    RecordCoverage()
+    RecordCoverage()
+    v121 <- CheckArrayBound:248(v109 T{_Smi}, v48 T{_Smi}) T{_Smi}
+    v122 <- LoadIndexed:248([_OneByteString] v7 T{_OneByteString}, v121) int64
+    v123 <- BoxInt64(v122) T{<:int}
+    RecordCoverage()
+    CheckSmi:252(v123)
+    v54 <- BinarySmiOp:252(&, v123 T{_Smi}, v41) T{_Smi}
+    RecordCoverage()
+    Branch if EqualityCompare:254(v54 == v55) T{bool} goto (34, 35)
+B34[target]:260
+    RecordCoverage()
+    RecordCoverage()
+    v61 <- BinarySmiOp:264(&, v112 T{_Smi}, v60) T{_Smi}
+    RecordCoverage()
+    v63 <- BinarySmiOp:266(<<, v61, v62) T{_Smi}
+    RecordCoverage()
+    v64 <- BinarySmiOp:268(+, v63, v59) T{_Smi}
+    RecordCoverage()
+    v65 <- BinarySmiOp:270(&, v123 T{_Smi}, v60) T{_Smi}
+    RecordCoverage()
+    v66 <- BinarySmiOp:272(+, v64, v65) T{_Smi}
+    goto:278 B36
+B35[target]:274
+    goto:280 B36
+B36[join]:276 pred(B34, B35) {
+      v57 <- phi(v66, v112 T{_Smi}) alive T{_Smi}
+      v58 <- phi(v12, v40) alive T{_Smi}
+}
+    goto:286 B38
+B37[target]:282
+    goto:288 B38
+B38[join]:284 pred(B36, B37) {
+      v50 <- phi(v57, v112 T{_Smi}) alive T{_Smi}
+      v51 <- phi(v58, v40) alive T{_Smi}
+}
+    goto:294 B40
+B39[target]:290
+    goto:296 B40
+B40[join]:292 pred(B38, B39) {
+      v45 <- phi(v50, v112 T{_Smi}) alive T{_Smi}
+      v46 <- phi(v51, v40) alive T{_Smi}
+}
+    RecordCoverage()
+    v47 <- StaticCall:298( _escapeChar@0150898<0> v45) T{<:String}
+    goto:304 B41
+B41[join]:300 pred(B23, B40) {
+      v69 <- phi(v71, v47) alive T{<:String}
+      v70 <- phi(v40, v46) alive T{_Smi}
+}
+    goto:310 B42
+B42[join]:306 pred(B20, B41) {
+      v72 <- phi(v83, v69) alive T{<:String?}
+      v73 <- phi(v84, v70) alive T{_Smi}
+}
+    Branch if StrictCompare:316(===, v25, v0) goto (195, 44)
+B195[target]:320
+    v78 <- AllocateObject:322(cls=StringBuffer) T{StringBuffer}
+    StoreField(v78 T{StringBuffer} . _partsCodeUnits@0150898 = v11 T{_Smi})
+    StoreField(v78 T{StringBuffer} . _partsCompactionIndex@0150898 = v11 T{_Smi})
+    StoreField(v78 T{StringBuffer} . _partsCodeUnitsSinceCompaction@0150898 = v11 T{_Smi})
+    StoreField(v78 T{StringBuffer} . _bufferPosition@0150898 = v11 T{_Smi})
+    StoreField(v78 T{StringBuffer} . _bufferCodeUnitMagnitude@0150898 = v11 T{_Smi})
+    goto:330 B45
+B44[target]:326
+    goto:332 B45
+B45[join]:328 pred(B44, B195) {
+      v74 <- phi(v25 T{StringBuffer}, v78) alive T{StringBuffer}
+      v75 <- phi(v25 T{StringBuffer}, v78) alive T{StringBuffer}
+}
+    v173 <- StaticCall:32( checkValidRange<0> v26 T{<:int}, v27 T{_Smi}, v109 T{_Smi}) T{<:int}
+    CheckSmi:12(v26 T{<:int})
+    CheckSmi:12(v173 T{<:int})
+    Branch if EqualityCompare:12(v26 T{_Smi} == v173 T{_Smi}) T{bool} goto (172, 173)
+B172[target]:18
+    goto:22 B122
+B173[target]:24
+    Branch if EqualityCompare:26(v26 T{_Smi} == v11) T{bool} goto (174, 177)
+B174[target]:40
+    Branch if EqualityCompare:34(v173 T{_Smi} == v109 T{_Smi}) T{bool} goto (175, 178)
+B175[target]:42
+    goto:46 B122
+B178[target]:54
+    goto:56 B176
+B177[target]:50
+    goto:52 B176
+B176[join]:48 pred(B177, B178)
+    v397 <- BinarySmiOp:58(+, v26 T{_Smi}, v40) T{_Smi}
+    Branch if EqualityCompare:60(v397 == v173 T{_Smi}) T{bool} goto (179, 180)
+B179[target]:66
+    v405 <- CheckArrayBound:68(v109 T{_Smi}, v26 T{_Smi}) T{_Smi}
+    v406 <- LoadIndexed:68([_OneByteString] v7 T{_OneByteString}, v405) int64
+    v407 <- BoxInt64(v406) T{<:int}
+    v408 <- OneByteStringFromCharCode(v407) T{_OneByteString}
+    goto:72 B122
+B180[target]:74
+    v399 <- StaticCall:76( _substringUncheckedNative@0150898<0> v7 T{_OneByteString}, v26 T{_Smi}, v173 T{_Smi}, using unchecked entrypoint, recognized_kind = OneByteString_substringUnchecked) T{_OneByteString}
+    goto:80 B122
+B122[join]:35 pred(B172, B175, B179, B180) {
+      v411 <- phi(v142 T{_OneByteString}, v7 T{_OneByteString}, v408, v399) alive T{_OneByteString}
+}
+    v422 <- LoadField(v411 T{_OneByteString} . String.length {final}) T{_Smi}
+    Branch if StrictCompare:10(===, v422, v11 T{_Smi}) T{bool} goto (83, 84)
+B83[target]:22
+    goto:26 B85
+B84[target]:28
+    v637 <- LoadField(v74 . _bufferPosition@0150898) T{_Smi}
+    Branch if EqualityCompare:14(v637 == v11) T{bool} goto (259, 260)
+B259[target]:20
+    goto:24 B261
+B260[target]:26
+    v641 <- LoadField(v74 T{StringBuffer} . _bufferCodeUnitMagnitude@0150898) T{_Smi}
+    v643 <- RelationalOp:30(<=, v641, v332 T{_Smi}) T{bool}
+    v644 <- LoadField(v74 T{StringBuffer} . _buffer@0150898) T{_Uint16List?}
+    v647 <- CheckNull:36(v644, CastError) T{_Uint16List}
+    v646 <- StaticCall:40( _create@0150898<0> v647 T{_Uint16List}, v637 T{_Smi}, v643) T{<:String}
+    StoreField(v74 T{StringBuffer} . _bufferCodeUnitMagnitude@0150898 = v11 T{_Smi})
+    StoreField(v74 T{StringBuffer} . _bufferPosition@0150898 = v11 T{_Smi})
+    StaticCall:48( _addPart@0150898<0> v74 T{StringBuffer}, v646, using unchecked entrypoint)
+    goto:52 B261
+B261[join]:13 pred(B259, B260)
+    StaticCall:14( _addPart@0150898<0> v74 T{StringBuffer}, v411 T{_OneByteString}, using unchecked entrypoint)
+    goto:34 B85
+B85[join]:339 pred(B83, B261)
+    v286 <- LoadClassId(v72) T{_Smi}
+    Branch if TestRange:12(v286 in [94-95]) goto (123, 134)
+B123[target]:2
+    goto:14 B135
+B134[target]:12
+    CheckClassId:12(v286 T{_Smi}, StringBuffer)
+    v593 <- LoadField(v72 T{StringBuffer} . _bufferPosition@0150898) T{_Smi}
+    Branch if EqualityCompare:14(v593 == v11) T{bool} goto (245, 246)
+B245[target]:20
+    goto:24 B247
+B246[target]:26
+    v597 <- LoadField(v72 T{StringBuffer} . _bufferCodeUnitMagnitude@0150898) T{_Smi}
+    v599 <- RelationalOp:30(<=, v597, v332 T{_Smi}) T{bool}
+    v600 <- LoadField(v72 T{StringBuffer} . _buffer@0150898) T{_Uint16List?}
+    v603 <- CheckNull:36(v600, CastError) T{_Uint16List}
+    v602 <- StaticCall:40( _create@0150898<0> v603 T{_Uint16List}, v593 T{_Smi}, v599) T{<:String}
+    StoreField(v72 T{StringBuffer} . _bufferCodeUnitMagnitude@0150898 = v11 T{_Smi})
+    StoreField(v72 T{StringBuffer} . _bufferPosition@0150898 = v11 T{_Smi})
+    StaticCall:48( _addPart@0150898<0> v72 T{StringBuffer}, v602, using unchecked entrypoint)
+    goto:52 B247
+B247[join]:13 pred(B245, B246)
+    v271 <- LoadField(v72 T{StringBuffer} . _parts@0150898) T{_GrowableList?}
+    v272 <- LoadField(v72 T{StringBuffer} . _partsCodeUnits@0150898) T{_Smi}
+    Branch if EqualityCompare:20(v272 == v11) T{bool} goto (129, 127)
+B129[target]:36
+    goto:38 B128
+B127[target]:32
+    Branch if StrictCompare:28(===, v271, v0 T{Null?}) goto (130, 131)
+B130[target]:40
+    goto:42 B128
+B128[join]:34 pred(B129, B130)
+    goto:52 B132
+B131[target]:44
+    v567 <- LoadField(v271 T{_GrowableList} . GrowableObjectArray.length) T{_Smi}
+    Branch if EqualityCompare:14(v567 T{_Smi} == v40) T{bool} goto (239, 240)
+B239[target]:20
+    v583 <- CheckArrayBound:22(v567 T{_Smi}, v11) T{_Smi}
+    v584 <- LoadField(v271 T{_GrowableList} . GrowableObjectArray.data) T{_List}
+    v585 <- LoadIndexed:22([_List] v584, v583) T{<:*?}
+    goto:26 B242
+B240[target]:28
+    v580 <- StaticCall:30( _concatRangeNative@0150898<0> v271 T{_GrowableList}, v11 T{_Smi}, v567 T{_Smi}) T{<:String}
+    goto:34 B242
+B242[join]:49 pred(B239, B240) {
+      v588 <- phi(v585, v580) alive T{<:*?}
+}
+    goto:54 B132
+B132[join]:50 pred(B128, B242) {
+      v278 <- phi(v142 T{_OneByteString}, v588) alive T{<:*?}
+}
+    goto:58 B135
+B135[join]:13 pred(B123, B132) {
+      v288 <- phi(v72 T{<:_StringBase}, v278) alive T{<:*?}
+}
+    CheckClass:16(v288 T{<:String} Cids[1: _OneByteString@0150898 etc.  cid 94])
+    v435 <- LoadField(v288 T{_OneByteString} . String.length {final}) T{_Smi}
+    Branch if StrictCompare:10(===, v435, v11 T{_Smi}) T{bool} goto (88, 89)
+B88[target]:22
+    goto:26 B90
+B89[target]:28
+    v654 <- LoadField(v74 . _bufferPosition@0150898) T{_Smi}
+    Branch if EqualityCompare:14(v654 == v11) T{bool} goto (264, 265)
+B264[target]:20
+    goto:24 B266
+B265[target]:26
+    v658 <- LoadField(v74 T{StringBuffer} . _bufferCodeUnitMagnitude@0150898) T{_Smi}
+    v660 <- RelationalOp:30(<=, v658, v332 T{_Smi}) T{bool}
+    v661 <- LoadField(v74 T{StringBuffer} . _buffer@0150898) T{_Uint16List?}
+    v664 <- CheckNull:36(v661, CastError) T{_Uint16List}
+    v663 <- StaticCall:40( _create@0150898<0> v664 T{_Uint16List}, v654 T{_Smi}, v660) T{<:String}
+    StoreField(v74 T{StringBuffer} . _bufferCodeUnitMagnitude@0150898 = v11 T{_Smi})
+    StoreField(v74 T{StringBuffer} . _bufferPosition@0150898 = v11 T{_Smi})
+    StaticCall:48( _addPart@0150898<0> v74 T{StringBuffer}, v663, using unchecked entrypoint)
+    goto:52 B266
+B266[join]:13 pred(B264, B265)
+    StaticCall:14( _addPart@0150898<0> v74 T{StringBuffer}, v288 T{_OneByteString}, using unchecked entrypoint)
+    goto:34 B90
+B90[join]:341 pred(B88, B266)
+    v77 <- BinarySmiOp:342(+, v27 T{_Smi}, v73 T{_Smi}) T{_Smi}
+    goto:350 B46
+B46[join]:346 pred(B10, B90) {
+      v87 <- phi(v25, v75) alive T{StringBuffer?}
+      v88 <- phi(v26, v77) alive T{_Smi}
+      v89 <- phi(v97, v77) alive T{_Smi}
+}
+    goto:352 B16
+B16[join]:134 pred(B15, B46) {
+      v90 <- phi(v25, v87) alive T{StringBuffer?}
+      v91 <- phi(v26, v88) alive T{_Smi}
+      v92 <- phi(v86, v89) alive T{_Smi}
+}
+    goto:358 B48
+B49[target]:364
+    Branch if StrictCompare:368(===, v25, v0) goto (50, 51)
+B50[target]:372
+    DartReturn:376(v0)
+B51[target]:378
+    Branch if RelationalOp:380(<, v26 T{_Smi}, v9 T{_Smi}) T{bool} goto (52, 53)
+B52[target]:386
+    CheckClass:388(v7 Cids[1: _OneByteString@0150898 etc.  cid 94])
+    v337 <- LoadField(v7 T{_OneByteString} . String.length {final}) T{_Smi}
+    v150 <- StaticCall:32( checkValidRange<0> v26 T{_Smi}, v9 T{_Smi}, v337 T{_Smi}) T{<:int}
+    CheckSmi:12(v150 T{<:int})
+    Branch if EqualityCompare:12(v26 T{_Smi} == v150 T{_Smi}) T{bool} goto (153, 154)
+B153[target]:18
+    goto:22 B109
+B154[target]:24
+    Branch if EqualityCompare:26(v26 T{_Smi} == v11) T{bool} goto (155, 158)
+B155[target]:40
+    Branch if EqualityCompare:34(v150 T{_Smi} == v337 T{_Smi}) T{bool} goto (156, 159)
+B156[target]:42
+    goto:46 B109
+B159[target]:54
+    goto:56 B157
+#
+B158[target]:50
+    goto:52 B157
+B157[join]:48 pred(B158, B159)
+    v351 <- BinarySmiOp:58(+, v26 T{_Smi}, v40) T{_Smi}
+    Branch if EqualityCompare:60(v351 == v150 T{_Smi}) T{bool} goto (160, 161)# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 
+1387224 bytes. Error detail: Chunk::new
+B160[target]:66
+    v359 <- CheckArrayBound:68(v337 T{_Smi}, v26 T{_Smi}) T{_Smi}
+    v360 <- LoadIndexed:68([_OneByteString] v7 T{_OneByteString}, v359) int64
+    v361 <- BoxInt64(v360) T{<:int}
+    v362 <- OneByteStringFromCharCode(v361) T{_OneByteString}
+    goto:72 B109
+B161[target]:74
+    v353 <- StaticCall:76( _substringUncheckedNative@0150898<0> v7 T{_OneByteString}, v26 T{_Smi}, v150 T{_Smi}, using unchecked entrypoint, recognized_kind = OneByteString_substringUnchecked) T{_OneByteString}
+    goto:80 B109
+B109[join]:35 pred(B153, B156, B160, B161) {
+      v365 <- phi(v142 T{_OneByteString}, v7 T{_OneByteString}, v362, v353) alive T{_OneByteString}
+}
+    v376 <- LoadField(v365 T{_OneByteString} . String.length {final}) T{_Smi}
+    Branch if StrictCompare:10(===, v376, v11 T{_Smi}) T{bool} goto (73, 74)
+B73[target]:22
+    goto:26 B75
+B74[target]:28
+    v615 <- LoadField(v25 T{StringBuffer} . _bufferPosition@0150898) T{_Smi}
+    Branch if EqualityCompare:14(v615 == v11) T{bool} goto (252, 253)
+B252[target]:20
+    goto:24 B254
+B253[target]:26
+    v619 <- LoadField(v25 T{StringBuffer} . _bufferCodeUnitMagnitude@0150898) T{_Smi}
+    v621 <- RelationalOp:30(<=, v619, v332 T{_Smi}) T{bool}
+    v622 <- LoadField(v25 T{StringBuffer} . _buffer@0150898) T{_Uint16List?}
+    v625 <- CheckNull:36(v622, CastError) T{_Uint16List}
+    v624 <- StaticCall:40( _create@0150898<0> v625 T{_Uint16List}, v615 T{_Smi}, v621) T{<:String}
+    StoreField(v25 T{StringBuffer} . _bufferCodeUnitMagnitude@0150898 = v11 T{_Smi})
+    StoreField(v25 T{StringBuffer} . _bufferPosition@0150898 = v11 T{_Smi})
+    StaticCall:48( _addPart@0150898<0> v25 T{StringBuffer}, v624, using unchecked entrypoint)
+    goto:52 B254
+B254[join]:13 pred(B252, B253)
+    StaticCall:14( _addPart@0150898<0> v25 T{StringBuffer}, v365 T{_OneByteString}, using unchecked entrypoint)
+    goto:34 B75
+B75[join]:391 pred(B73, B254)
+    goto:396 B54
+B53[target]:392
+    goto:398 B54
+B54[join]:394 pred(B53, B75)
+    v319 <- LoadField(v25 T{StringBuffer} . _bufferPosition@0150898) T{_Smi}
+    Branch if EqualityCompare:14(v319 == v11) T{bool} goto (146, 147)
+B146[target]:20
+    goto:24 B148
+B147[target]:26
+    v323 <- LoadField(v25 T{StringBuffer} . _bufferCodeUnitMagnitude@0150898) T{_Smi}
+    v325 <- RelationalOp:30(<=, v323, v332 T{_Smi}) T{bool}
+    v326 <- LoadField(v25 T{StringBuffer} . _buffer@0150898) T{_Uint16List?}
+    v329 <- CheckNull:36(v326, CastError) T{_Uint16List}
+    v328 <- StaticCall:40( _create@0150898<0> v329 T{_Uint16List}, v319 T{_Smi}, v325) T{<:String}
+    StoreField(v25 T{StringBuffer} . _bufferCodeUnitMagnitude@0150898 = v11 T{_Smi})
+    StoreField(v25 T{StringBuffer} . _bufferPosition@0150898 = v11 T{_Smi})
+    StaticCall:48( _addPart@0150898<0> v25 T{StringBuffer}, v328, using unchecked entrypoint)
+    goto:52 B148
+B148[join]:13 pred(B146, B147)
+    v128 <- LoadField(v25 T{StringBuffer} . _parts@0150898) T{_GrowableList?}
+    v129 <- LoadField(v25 T{StringBuffer} . _partsCodeUnits@0150898) T{_Smi}
+    Branch if EqualityCompare:20(v129 == v11) T{bool} goto (62, 60)
+B62[target]:36
+    goto:38 B61
+B60[target]:32
+    Branch if StrictCompare:28(===, v128, v0 T{Null?}) goto (63, 64)
+B63[target]:40
+# An error report file with more information is saved as:
+# c:\lakmal_code\novel_mobile_app\android\hs_err_pid31188.log
+    goto:42 B61
+B61[join]:34 pred(B62, B63)
+    goto:52 B65
+B64[target]:44
+    v293 <- LoadField(v128 T{_GrowableList} . GrowableObjectArray.length) T{_Smi}
+    Branch if EqualityCompare:14(v293 T{_Smi} == v40) T{bool} goto (140, 141)
+B140[target]:20
+    v309 <- CheckArrayBound:22(v293 T{_Smi}, v11) T{_Smi}
+    v310 <- LoadField(v128 T{_GrowableList} . GrowableObjectArray.data) T{_List}
+    v311 <- LoadIndexed:22([_List] v310, v309) T{<:*?}
+    goto:26 B143
+B141[target]:28
+    v306 <- StaticCall:30( _concatRangeNative@0150898<0> v128 T{_GrowableList}, v11 T{_Smi}, v293 T{_Smi}) T{<:String}
+    goto:34 B143
+B143[join]:49 pred(B140, B141) {
+      v314 <- phi(v311, v306) alive T{<:*?}
+}
+    goto:54 B65
+B65[join]:50 pred(B61, B143) {
+      v135 <- phi(v142 T{_OneByteString}, v314) alive T{<:*?}
+}
+    DartReturn:404(v135 T{<:String})
+*** END CFG
+#
+# Compiler replay data is saved as:
+# c:\lakmal_code\novel_mobile_app\android\replay_pid31188.log
+
+c:\lakmal_code\novel_mobile_app\android>if "1" == "0" goto mainEnd 
+
+c:\lakmal_code\novel_mobile_app\android>rem Set variable GRADLE_EXIT_CONSOLE if you need the _script_ return code instead of 
+
+c:\lakmal_code\novel_mobile_app\android>rem the _cmd.exe /c_ return code! 
+
+c:\lakmal_code\novel_mobile_app\android>if not "" == "" exit 1 
+
+c:\lakmal_code\novel_mobile_app\android>exit /b 1 

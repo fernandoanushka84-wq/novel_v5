@@ -1,0 +1,41 @@
+{
+  "project_info": {
+    "project_number": "470949991659",
+    "project_id": "nove-mobile-app",
+    "storage_bucket": "",
+    "firebase_url": ""
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470949991659:android:0000000000000000",
+        "android_client_info": {
+          "package_name": "com.example.novel_mobile_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "470949991659-avk11lvc5sv1ffietga62f8h591t7ijc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": ""
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": "UNKNOWN"
+        },
+        "appinvite_service": {
+          "status": "UNKNOWN"
+        },
+        "ads_service": {
+          "status": "UNKNOWN"
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
