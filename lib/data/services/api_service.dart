@@ -1055,4 +1055,144 @@ class ApiService {
     },
     'achievements': [],
   };
+
+
+  // ---------------------------------------------------------------------------
+  // Wingsaga feature APIs
+  // ---------------------------------------------------------------------------
+
+  Future<Map<String, dynamic>> checkUsername(String q) async {
+    final response = await _get('/api/username/check?q=${Uri.encodeQueryComponent(q)}');
+    if (response.statusCode >= 400) return {'available': false};
+    return jsonDecode(response.body) as Map<String, dynamic>;
+  }
+
+  Future<Map<String, dynamic>> setUsername(String username) async {
+    final response = await _requestWithHostFallback(
+      (base) => http.put(
+        Uri.parse('$base/api/me/username'),
+        headers: {..._authHeaders, 'Content-Type': 'application/json'},
+        body: jsonEncode({'username': username}),
+      ),
+      const Duration(seconds: 12),
+    );
+    if (response.statusCode >= 400) {
+      throw Exception((jsonDecode(response.body) is Map ? (jsonDecode(response.body)['detail'] ?? response.body) : response.body).toString());
+    }
+    return jsonDecode(response.body) as Map<String, dynamic>;
+  }
+
+  Future<Map<String, dynamic>> fetchSocialLinks(int userId) async {
+    final response = await _get('/api/users/$userId/social-links');
+    if (response.statusCode >= 400) {
+      return {'instagram': '', 'twitter': '', 'facebook': '', 'tiktok': '', 'youtube': '', 'website': ''};
+    }
+    return jsonDecode(response.body) as Map<String, dynamic>;
+  }
+
+  Future<void> updateSocialLinks(Map<String, String> links) async {
+    final response = await _requestWithHostFallback(
+      (base) => http.put(
+        Uri.parse('$base/api/me/social-links'),
+        headers: {..._authHeaders, 'Content-Type': 'application/json'},
+        body: jsonEncode(links),
+      ),
+      const Duration(seconds: 12),
+    );
+    if (response.statusCode >= 400) {
+      throw Exception((jsonDecode(response.body) is Map ? (jsonDecode(response.body)['detail'] ?? response.body) : response.body).toString());
+    }
+  }
+
+  Future<Map<String, dynamic>> fetchShareProfile(int userId) async {
+    final response = await _get('/api/users/$userId/share');
+    if (response.statusCode >= 400) {
+      throw Exception((jsonDecode(response.body) is Map ? (jsonDecode(response.body)['detail'] ?? response.body) : response.body).toString());
+    }
+    return jsonDecode(response.body) as Map<String, dynamic>;
+  }
+
+  Future<List<Map<String, dynamic>>> fetchContinueReading() async {
+    final response = await _get('/api/home/continue-reading');
+    if (response.statusCode >= 400) return <Map<String, dynamic>>[];
+    final body = jsonDecode(response.body) as Map<String, dynamic>;
+    final items = body['items'];
+    if (items is! List) return <Map<String, dynamic>>[];
+    return items.map((e) => Map<String, dynamic>.from(e as Map)).toList();
+  }
+
+  Future<List<Map<String, dynamic>>> fetchLatestBooks({int limit = 20}) async {
+    final response = await _get('/api/home/latest-books?limit=$limit');
+    if (response.statusCode >= 400) return <Map<String, dynamic>>[];
+    final body = jsonDecode(response.body) as Map<String, dynamic>;
+    final items = body['items'];
+    if (items is! List) return <Map<String, dynamic>>[];
+    return items.map((e) => Map<String, dynamic>.from(e as Map)).toList();
+  }
+
+  Future<void> saveReadingProgress({
+    required int bookId,
+    required int chapterNumber,
+    int progressPercent = 0,
+  }) async {
+    final response = await _requestWithHostFallback(
+      (base) => http.post(
+        Uri.parse('$base/api/home/reading-progress'),
+        headers: {..._authHeaders, 'Content-Type': 'application/json'},
+        body: jsonEncode({
+          'book_id': bookId,
+          'chapter_number': chapterNumber,
+          'progress_percent': progressPercent,
+        }),
+      ),
+      const Duration(seconds: 12),
+    );
+    if (response.statusCode >= 400) {
+      // Non-fatal for guests / offline
+      debugPrint('saveReadingProgress failed: ${response.statusCode}');
+    }
+  }
+
+  Future<Map<String, dynamic>> fetchGuestRecommendations({String country = ''}) async {
+    final q = country.isEmpty ? '' : '?country=${Uri.encodeQueryComponent(country)}';
+    final response = await _get('/api/guest/recommendations$q');
+    if (response.statusCode >= 400) {
+      return {'items': <dynamic>[], 'languages': <dynamic>['English']};
+    }
+    return jsonDecode(response.body) as Map<String, dynamic>;
+  }
+
+  Future<void> submitDeveloperHelp({
+    required String title,
+    required String description,
+    String category = 'feature',
+    String email = '',
+  }) async {
+    final response = await _requestWithHostFallback(
+      (base) => http.post(
+        Uri.parse('$base/api/developer-help'),
+        headers: {..._authHeaders, 'Content-Type': 'application/json'},
+        body: jsonEncode({
+          'title': title,
+          'description': description,
+          'category': category,
+          'email': email,
+        }),
+      ),
+      const Duration(seconds: 12),
+    );
+    if (response.statusCode >= 400) {
+      throw Exception((jsonDecode(response.body) is Map ? (jsonDecode(response.body)['detail'] ?? response.body) : response.body).toString());
+    }
+  }
+
+  Future<List<Map<String, dynamic>>> fetchWriterAchievements(int userId) async {
+    final response = await _get('/api/users/$userId/writer-achievements');
+    if (response.statusCode >= 400) return <Map<String, dynamic>>[];
+    final body = jsonDecode(response.body) as Map<String, dynamic>;
+    final items = body['items'];
+    if (items is! List) return <Map<String, dynamic>>[];
+    return items.map((e) => Map<String, dynamic>.from(e as Map)).toList();
+  }
+
 }

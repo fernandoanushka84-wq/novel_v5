@@ -32,6 +32,10 @@ class _DiscoverScreenState extends State<DiscoverScreen>
   late final TabController _tabController;
   late final List<String> _tabs;
   int _selectedTabIndex = 0;
+  List<Map<String, dynamic>> _continueReading = const [];
+  List<Map<String, dynamic>> _latestBooks = const [];
+  bool _homeRailsLoaded = false;
+
 
   @override
   void initState() {
@@ -45,6 +49,27 @@ class _DiscoverScreenState extends State<DiscoverScreen>
         setState(() => _selectedTabIndex = _tabController.index);
       }
     });
+    _loadHomeRails();
+  }
+
+  Future<void> _loadHomeRails() async {
+    try {
+      final latest = await widget.apiService.fetchLatestBooks(limit: 16);
+      List<Map<String, dynamic>> cont = const [];
+      try {
+        cont = await widget.apiService.fetchContinueReading();
+      } catch (_) {
+        // Guest / not logged in
+      }
+      if (!mounted) return;
+      setState(() {
+        _latestBooks = latest;
+        _continueReading = cont;
+        _homeRailsLoaded = true;
+      });
+    } catch (_) {
+      if (mounted) setState(() => _homeRailsLoaded = true);
+    }
   }
 
   @override
@@ -64,12 +89,12 @@ class _DiscoverScreenState extends State<DiscoverScreen>
             child: Row(
               children: [
                 const Text(
-                  'Inkitt',
+                  'Wingsaga',
                   style: TextStyle(
                     fontSize: 26,
                     fontWeight: FontWeight.w800,
                     letterSpacing: -0.5,
-                    color: Color(0xFF1A1A1A),
+                    color: Color(0xFF581845),
                   ),
                 ),
                 const Spacer(),
@@ -130,6 +155,139 @@ class _DiscoverScreenState extends State<DiscoverScreen>
         shrinkWrap: true,
         padding: const EdgeInsets.fromLTRB(16, 18, 16, 30),
         children: [
+          if (_continueReading.isNotEmpty) ...[
+            const Text(
+              'Continue Reading',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800, color: Color(0xFF231F20)),
+            ),
+            const SizedBox(height: 12),
+            SizedBox(
+              height: 210,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemCount: _continueReading.length,
+                separatorBuilder: (_, __) => const SizedBox(width: 12),
+                itemBuilder: (context, index) {
+                  final item = _continueReading[index];
+                  final title = item['title']?.toString() ?? '';
+                  final cover = item['cover_path']?.toString() ?? '';
+                  final ch = item['chapter_number'] ?? 1;
+                  return GestureDetector(
+                    onTap: () {
+                      final id = (item['id'] as num?)?.toInt();
+                      if (id == null) return;
+                      Navigator.of(context).push(
+                        MaterialPageRoute<void>(
+                          builder: (_) => StoryDetailScreen(
+                            apiService: widget.apiService,
+                            book: BookDetailModel.fromMap(item),
+                          ),
+                        ),
+                      );
+                    },
+                    child: SizedBox(
+                      width: 110,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: cover.isNotEmpty
+                                  ? Image.network(
+                                      widget.apiService.resolveAssetUrl(cover),
+                                      fit: BoxFit.cover,
+                                      width: 110,
+                                      errorBuilder: (_, __, ___) =>
+                                          const ColoredBox(color: Color(0xFFE8E0D8)),
+                                    )
+                                  : const ColoredBox(color: Color(0xFFE8E0D8)),
+                            ),
+                          ),
+                          const SizedBox(height: 6),
+                          Text(
+                            title,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                          ),
+                          Text(
+                            'Ch. $ch',
+                            style: const TextStyle(fontSize: 11, color: Color(0xFF6B6560)),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(height: 24),
+          ],
+          if (_latestBooks.isNotEmpty) ...[
+            const Text(
+              'Latest Books',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800, color: Color(0xFF231F20)),
+            ),
+            const SizedBox(height: 12),
+            SizedBox(
+              height: 210,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemCount: _latestBooks.length,
+                separatorBuilder: (_, __) => const SizedBox(width: 12),
+                itemBuilder: (context, index) {
+                  final item = _latestBooks[index];
+                  final title = item['title']?.toString() ?? '';
+                  final cover = item['cover_path']?.toString() ?? '';
+                  return GestureDetector(
+                    onTap: () {
+                      final id = (item['id'] as num?)?.toInt();
+                      if (id == null) return;
+                      Navigator.of(context).push(
+                        MaterialPageRoute<void>(
+                          builder: (_) => StoryDetailScreen(
+                            apiService: widget.apiService,
+                            book: BookDetailModel.fromMap(item),
+                          ),
+                        ),
+                      );
+                    },
+                    child: SizedBox(
+                      width: 110,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: cover.isNotEmpty
+                                  ? Image.network(
+                                      widget.apiService.resolveAssetUrl(cover),
+                                      fit: BoxFit.cover,
+                                      width: 110,
+                                      errorBuilder: (_, __, ___) =>
+                                          const ColoredBox(color: Color(0xFFE8E0D8)),
+                                    )
+                                  : const ColoredBox(color: Color(0xFFE8E0D8)),
+                            ),
+                          ),
+                          const SizedBox(height: 6),
+                          Text(
+                            title,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(height: 24),
+          ],
           if (showExploreLead) ...[
             _ExploreStoriesSection(
               books: sections.first.books,

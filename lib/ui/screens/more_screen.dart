@@ -8,6 +8,8 @@ import 'achievements_screen.dart';
 import 'profile_screen.dart';
 import 'reading_stats_screen.dart';
 import 'support_screen.dart';
+import 'developer_help_screen.dart';
+import '../../main.dart';
 
 class MoreScreen extends StatelessWidget {
   const MoreScreen({
@@ -29,6 +31,68 @@ class MoreScreen extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(12, 10, 12, 20),
       children: [
         _AccountCard(session: session, onSignOut: onSignOut),
+        const SizedBox(height: 10),
+        Card(
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(14),
+            side: const BorderSide(color: AppTheme.border),
+          ),
+          child: Column(
+            children: [
+              ListTile(
+                leading: const Icon(Icons.brightness_6_outlined),
+                title: const Text('Appearance'),
+                subtitle: const Text('Light / Dark / System'),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () async {
+                  final app = WingsagaApp.of(context);
+                  final current = app?.themeMode ?? ThemeMode.system;
+                  final picked = await showModalBottomSheet<ThemeMode>(
+                    context: context,
+                    builder: (ctx) => SafeArea(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          ListTile(
+                            title: const Text('System default'),
+                            trailing: current == ThemeMode.system ? const Icon(Icons.check) : null,
+                            onTap: () => Navigator.pop(ctx, ThemeMode.system),
+                          ),
+                          ListTile(
+                            title: const Text('Light'),
+                            trailing: current == ThemeMode.light ? const Icon(Icons.check) : null,
+                            onTap: () => Navigator.pop(ctx, ThemeMode.light),
+                          ),
+                          ListTile(
+                            title: const Text('Dark'),
+                            trailing: current == ThemeMode.dark ? const Icon(Icons.check) : null,
+                            onTap: () => Navigator.pop(ctx, ThemeMode.dark),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                  if (picked != null) await app?.setThemeMode(picked);
+                },
+              ),
+              const Divider(height: 1),
+              ListTile(
+                leading: const Icon(Icons.bug_report_outlined),
+                title: const Text('Developer Help'),
+                subtitle: const Text('Feature requests & bug reports'),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => DeveloperHelpScreen(apiService: apiService),
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
         const SizedBox(height: 10),
         ...data.menuSections.map((section) {
           return _Section(

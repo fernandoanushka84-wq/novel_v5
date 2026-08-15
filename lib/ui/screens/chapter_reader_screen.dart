@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../../core/theme/app_theme.dart';
+import 'package:flutter/services.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../../data/services/api_service.dart';
@@ -92,6 +94,19 @@ class _ChapterReaderScreenState extends State<ChapterReaderScreen> {
     }
     _loadChaptersIfNeeded();
     _loadReactions();
+    _persistProgress();
+  }
+
+  Future<void> _persistProgress() async {
+    final id = widget.bookId;
+    if (id == null) return;
+    try {
+      await widget.apiService.saveReadingProgress(
+        bookId: id,
+        chapterNumber: _chapterNumber,
+        progressPercent: 0,
+      );
+    } catch (_) {}
   }
 
   @override
@@ -144,6 +159,7 @@ class _ChapterReaderScreenState extends State<ChapterReaderScreen> {
       _theme == _ReaderTheme.nightowl ? Colors.white60 : Colors.black54;
 
   Future<void> _goNext() async {
+    await _persistProgress();
     if (_chapterIndex >= _chapters.length - 1) return;
     setState(() {
       _chapterIndex++;
@@ -555,6 +571,11 @@ class _ChapterReaderScreenState extends State<ChapterReaderScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
+                // Content protection: discourage select/copy (deterrent only)
+                SelectionContainer.disabled(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                 // First half of content
                 Text(
                   parts[0].isEmpty && parts[1].isEmpty
@@ -581,6 +602,9 @@ class _ChapterReaderScreenState extends State<ChapterReaderScreen> {
                       height: 1.75,
                     ),
                   ),
+                ],
+                  ),
+                ),
                 const SizedBox(height: 24),
                 // Ad near Next Chapter button
                 if (hasNext)
@@ -596,7 +620,7 @@ class _ChapterReaderScreenState extends State<ChapterReaderScreen> {
                       child: ElevatedButton(
                         onPressed: _goNext,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF1A73E8),
+                          backgroundColor: AppTheme.brand,
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
